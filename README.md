@@ -45,7 +45,7 @@
 ### 1. 安装
 
 ```bash
-git clone https://github.com/552938385/wechat-content-pipeline.git
+git clone https://github.com/evcgs/wechat-content-pipeline.git
 cd wechat-content-pipeline
 npm install
 ```
@@ -111,8 +111,8 @@ wechat-pipeline image --article ./content/my-article.md
 wechat-pipeline publish --file ./content/my-article.md
 
 # 单独使用
-wechat-pipeline search --query "智诊科技 发布时间"
-wechat-pipeline image --prompt "AI医疗" --size 2560x1440 --type cover
+wechat-pipeline search --query "搜索关键词"
+wechat-pipeline image --prompt "图片描述" --size 2560x1440 --type cover
 wechat-pipeline publish --file ./content/my-article.md
 ```
 
