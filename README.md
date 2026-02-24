@@ -30,7 +30,7 @@
 9. 发布（微信公众号）
 ```
 
-**详细说明见：[WORKFLOW.md](./WORKFLOW.md)**
+**详细说明见：[WORKFLOW.md](./WORKFLOW.md)
 
 **完整模板见：[templates/workflow/](./templates/workflow/)**
 
@@ -43,6 +43,35 @@
 - ✅ **微信发布** - 使用 wenyan-cli 一键发布到微信公众号草稿箱
 - ✅ **统一配置** - 一个配置文件管理所有密钥
 - ✅ **统一入口** - 一个命令完成所有操作
+- ✅ **安装验证** - 使用 `doctor` 命令验证安装是否成功
+
+---
+
+## 验证安装（重要！）
+
+安装完成后，运行验证命令：
+
+```bash
+wechat-pipeline doctor
+```
+
+**成功输出示例：**
+```
+╔══════════════════════════════════════════════════════════╗
+║           wechat-content-pipeline 安装验证                ║
+╚══════════════════════════════════════════════════════════╝
+
+✅ Node.js: v18.0.0
+✅ npm: 9.0.0
+✅ wenyan-cli: 1.0.0
+✅ 项目依赖: 已安装
+✅ 配置文件: config/config.json 已存在
+
+✅ 所有检查通过！安装成功！
+
+快速开始：
+  wechat-pipeline --help
+```
 
 ---
 
@@ -84,6 +113,13 @@ cp config/config.example.json config/config.json
 
 编辑 `config/config.json`，填入你的 API 密钥。
 
+5. **验证安装**
+
+```bash
+cd ~/.openclaw/workspace/skills/wechat-content-pipeline
+node bin/wechat-pipeline.js doctor
+```
+
 #### 在 OpenClaw 中使用
 
 ```
@@ -124,6 +160,12 @@ cp config/config.example.json config/config.json
 ```
 
 编辑 `config/config.json`，填入你的 API 密钥。
+
+4. **验证安装**
+
+```bash
+wechat-pipeline doctor
+```
 
 #### 使用命令行
 

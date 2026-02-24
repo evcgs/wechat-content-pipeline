@@ -87,6 +87,34 @@ cp config/config.example.json config/config.json
 
 详细配置指南见：[CONFIG.md](./CONFIG.md)
 
+### 5. 验证安装
+
+运行验证命令：
+
+```bash
+cd ~/.openclaw/workspace/skills/wechat-content-pipeline
+node bin/wechat-pipeline.js doctor
+```
+
+或者如果你做了 `npm link`：
+```bash
+wechat-pipeline doctor
+```
+
+**成功输出示例：**
+```
+✅ Node.js: v18.0.0
+✅ npm: 9.0.0
+✅ wenyan-cli: 1.0.0
+✅ 项目依赖: 已安装
+✅ 配置文件: config/config.json 已存在
+
+✅ 所有检查通过！安装成功！
+
+快速开始：
+  wechat-pipeline --help
+```
+
 ## 在 OpenClaw 中使用
 
 ### 完整流水线

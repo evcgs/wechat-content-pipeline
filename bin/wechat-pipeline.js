@@ -106,6 +106,84 @@ program
     });
   });
 
+// 验证命令
+program
+  .command('doctor')
+  .description('验证安装是否成功')
+  .action(() => {
+    console.log('');
+    console.log('╔══════════════════════════════════════════════════════════╗');
+    console.log('║           wechat-content-pipeline 安装验证                ║');
+    console.log('╚══════════════════════════════════════════════════════════╝');
+    console.log('');
+
+    let allPassed = true;
+
+    // 检查 Node.js
+    try {
+      const nodeVersion = process.version;
+      console.log('✅ Node.js:', nodeVersion);
+    } catch (e) {
+      console.log('❌ Node.js: 未找到');
+      allPassed = false;
+    }
+
+    // 检查 npm
+    try {
+      const { execSync } = require('child_process');
+      const npmVersion = execSync('npm --version', { stdio: 'pipe' }).toString().trim();
+      console.log('✅ npm:', npmVersion);
+    } catch (e) {
+      console.log('❌ npm: 未找到');
+      allPassed = false;
+    }
+
+    // 检查 wenyan-cli
+    try {
+      const { execSync } = require('child_process');
+      const wenyanVersion = execSync('wenyan --version', { stdio: 'pipe' }).toString().trim();
+      console.log('✅ wenyan-cli:', wenyanVersion);
+    } catch (e) {
+      console.log('❌ wenyan-cli: 未找到');
+      console.log('   请运行: npm install -g @wenyan-md/cli');
+      allPassed = false;
+    }
+
+    // 检查依赖
+    try {
+      require.resolve('../package.json');
+      console.log('✅ 项目依赖: 已安装');
+    } catch (e) {
+      console.log('❌ 项目依赖: 未安装');
+      console.log('   请运行: npm install');
+      allPassed = false;
+    }
+
+    // 检查配置文件
+    const configPath = require('path').join(__dirname, '../config/config.json');
+    const configExamplePath = require('path').join(__dirname, '../config/config.example.json');
+    
+    if (require('fs').existsSync(configPath)) {
+      console.log('✅ 配置文件: config/config.json 已存在');
+    } else if (require('fs').existsSync(configExamplePath)) {
+      console.log('⚠️  配置文件: config/config.example.json 存在，请复制为 config.json 并配置');
+    } else {
+      console.log('❌ 配置文件: 未找到');
+      allPassed = false;
+    }
+
+    console.log('');
+    if (allPassed) {
+      console.log('✅ 所有检查通过！安装成功！');
+      console.log('');
+      console.log('快速开始：');
+      console.log('  wechat-pipeline --help');
+    } else {
+      console.log('❌ 部分检查失败，请查看上方错误信息');
+    }
+    console.log('');
+  });
+
 // 配置命令
 program
   .command('config')
