@@ -152,7 +152,13 @@ wechat-content-pipeline/
 
 ## 配置说明
 
-详见 [CONFIG.md](./CONFIG.md)（如果存在）
+详细配置指南请见：[CONFIG.md](./CONFIG.md)
+
+包含：
+- wenyan-cli 详细配置
+- 如何获取微信公众号 AppID 和 AppSecret
+- 如何设置 IP 白名单
+- 完整配置示例
 
 ## 故障排查
 
