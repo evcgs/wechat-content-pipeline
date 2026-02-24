@@ -47,34 +47,6 @@
 
 ---
 
-## 验证安装（重要！）
-
-安装完成后，运行验证命令：
-
-```bash
-wechat-pipeline doctor
-```
-
-**成功输出示例：**
-```
-╔══════════════════════════════════════════════════════════╗
-║           wechat-content-pipeline 安装验证                ║
-╚══════════════════════════════════════════════════════════╝
-
-✅ Node.js: v18.0.0
-✅ npm: 9.0.0
-✅ wenyan-cli: 1.0.0
-✅ 项目依赖: 已安装
-✅ 配置文件: config/config.json 已存在
-
-✅ 所有检查通过！安装成功！
-
-快速开始：
-  wechat-pipeline --help
-```
-
----
-
 ## 两种使用方式
 
 ### 方式 1: 作为 OpenClaw 技能使用（推荐）
@@ -112,13 +84,6 @@ cp config/config.example.json config/config.json
 ```
 
 编辑 `config/config.json`，填入你的 API 密钥。
-
-5. **验证安装**
-
-```bash
-cd ~/.openclaw/workspace/skills/wechat-content-pipeline
-node bin/wechat-pipeline.js doctor
-```
 
 #### 在 OpenClaw 中使用
 
@@ -161,12 +126,6 @@ cp config/config.example.json config/config.json
 
 编辑 `config/config.json`，填入你的 API 密钥。
 
-4. **验证安装**
-
-```bash
-wechat-pipeline doctor
-```
-
 #### 使用命令行
 
 ```bash
@@ -190,6 +149,50 @@ wechat-pipeline publish --file ./content/my-article.md
 wechat-pipeline config --init
 wechat-pipeline config --show
 ```
+
+---
+
+## 验证安装（重要！）
+
+安装完成后，运行验证命令：
+
+```bash
+wechat-pipeline doctor
+```
+
+**成功输出示例：**
+```
+╔══════════════════════════════════════════════════════════╗
+║           wechat-content-pipeline 安装验证                ║
+╚══════════════════════════════════════════════════════════╝
+
+✅ Node.js: v18.0.0
+✅ npm: 9.0.0
+✅ wenyan-cli: 1.0.0
+✅ 项目依赖: 已安装
+✅ 配置文件: config/config.json 已存在
+
+✅ 所有检查通过！安装成功！
+
+快速开始：
+  wechat-pipeline --help
+```
+
+---
+
+## 交流与反馈
+
+### 使用群
+
+扫码加入使用群，交流问题、分享经验：
+
+![使用群二维码](./assets/group-qrcode.png)
+
+### 个人微信
+
+有问题也可以直接加我微信：
+
+![个人微信二维码](./assets/personal-qrcode.png)
 
 ---
 
@@ -233,6 +236,10 @@ wechat-content-pipeline/
 ├── CONFIG.md               # 详细配置指南
 ├── QUICKSTART.md           # MVP 快速开始
 ├── package.json            # Node.js 配置
+│
+├── assets/                 # 图片资源
+│   ├── group-qrcode.png   # 使用群二维码
+│   └── personal-qrcode.png # 个人微信二维码
 │
 ├── bin/                    # 可执行文件
 ├── src/                    # 源代码
