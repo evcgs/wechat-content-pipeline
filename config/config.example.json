@@ -1,0 +1,23 @@
+{
+  "serpapi": {
+    "apiKey": "your_serpapi_key_here"
+  },
+  "volcengine": {
+    "apiKey": "your_volcengine_api_key_here",
+    "model": "doubao-seedream-4-5-251128",
+    "endpoint": "https://ark.cn-beijing.volces.com/api/v3/images/generations"
+  },
+  "wechat": {
+    "defaultAccount": "default",
+    "accounts": {
+      "default": {
+        "appId": "your_wechat_app_id",
+        "appSecret": "your_wechat_app_secret"
+      }
+    }
+  },
+  "paths": {
+    "contentDir": "./content",
+    "imageDir": "./images"
+  }
+}
