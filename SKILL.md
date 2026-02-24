@@ -47,49 +47,47 @@ node bin/wechat-pipeline.js doctor
 
 ---
 
-## Usage
+## Usage (For Agent)
 
-### Full Pipeline
+### Complete Content Production Workflow (9 Steps)
+
+This skill can help with the complete 9-step content production workflow:
+
+1. **Topic Selection** - Use templates in `templates/workflow/01-topic.md`
+2. **Idea Refinement** - Use templates in `templates/workflow/02-ideas.md`
+3. **Evidence Collection** - Use templates in `templates/workflow/03-evidence.md`
+4. **Outline Creation** - Use templates in `templates/workflow/04-outline.md`
+5. **Write Article** - Write the article draft
+6. **Search Verification** - Run: `node bin/wechat-pipeline.js search --article /path/to/article.md`
+7. **Generate Images** - Run: `node bin/wechat-pipeline.js image --article /path/to/article.md`
+8. **Insert Images** - Update the article with images
+9. **Publish** - Run: `node bin/wechat-pipeline.js publish --file /path/to/article.md`
+
+### Quick Commands
 
 ```bash
+# Full pipeline (steps 6-9)
 node bin/wechat-pipeline.js pipeline --article /path/to/article.md
-```
 
-### Step-by-Step
-
-```bash
-# Search verification
+# Individual steps
 node bin/wechat-pipeline.js search --article /path/to/article.md
-
-# Generate images
 node bin/wechat-pipeline.js image --article /path/to/article.md
-
-# Publish
 node bin/wechat-pipeline.js publish --file /path/to/article.md
-```
 
-### Individual Commands
-
-```bash
-# Search
+# Standalone usage
 node bin/wechat-pipeline.js search --query "search query"
-
-# Generate image
 node bin/wechat-pipeline.js image --prompt "image prompt" --size 2560x1440 --type cover
-
-# Publish
-node bin/wechat-pipeline.js publish --file /path/to/article.md
 ```
 
 ---
 
-## Workflow Templates (Optional)
+## Workflow Templates
 
 Full 9-step workflow templates are available in `templates/workflow/`:
 
 - `01-topic.md` - Topic selection
 - `02-ideas.md` - Idea refinement
-- `03-evidence.md` - Evidence整理
+- `03-evidence.md` - Evidence collection
 - `04-outline.md` - Outline creation
 - `05-article.md` - Article draft
 - `08-publish.md` - Publish version
