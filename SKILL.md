@@ -1,12 +1,19 @@
-# wechat-content-pipeline
+---
+name: wechat-content-pipeline
+description: "微信公众号内容生产流水线 - 整合搜索验证、图片生成、发布全流程"
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "📱",
+        "requires": { "bins": ["node", "npm"], "env": ["SERPAPI_KEY", "VOLCENGINE_API_KEY", "ARK_API_KEY", "WECHAT_APP_ID", "WECHAT_APP_SECRET"] },
+      },
+  }
+---
+
+# wechat-content-pipeline (OpenClaw Skill)
 
 微信公众号内容生产流水线 - 整合搜索验证、图片生成、发布全流程。
-
-**支持两种使用方式：**
-1. ✅ 作为 **OpenClaw 技能**使用
-2. ✅ 作为 **独立 Node.js 工具**使用
-
----
 
 ## 功能
 
@@ -16,39 +23,61 @@
 - ✅ **统一配置** - 一个配置文件管理所有密钥
 - ✅ **统一入口** - 一个命令完成所有操作
 
----
-
 ## 两种使用方式
 
 ### 方式 1: 作为 OpenClaw 技能使用（推荐）
 
-如果你使用 OpenClaw，这是最简单的方式。
+将此文件夹复制到你的 OpenClaw workspace 的 `skills/` 目录下：
 
-#### 安装步骤
+```bash
+cp -r wechat-content-pipeline ~/.openclaw/workspace/skills/
+```
 
-1. **复制技能到 OpenClaw**
+然后在 OpenClaw 中使用：
+```
+"帮我发布这篇文章到微信公众号" + 附带文章路径
+```
+
+### 方式 2: 作为独立 Node.js 工具使用
+
+```bash
+git clone https://github.com/evcgs/wechat-content-pipeline.git
+cd wechat-content-pipeline
+npm install
+npm link  # 可选，全局链接
+```
+
+然后使用命令行：
+```bash
+wechat-pipeline pipeline --article ./content/my-article.md
+```
+
+## 安装（作为 OpenClaw 技能）
+
+### 1. 复制技能到 OpenClaw
 
 ```bash
 # 假设你的 OpenClaw workspace 在 ~/.openclaw/workspace
 cp -r wechat-content-pipeline ~/.openclaw/workspace/skills/
 ```
 
-2. **安装依赖**
+### 2. 安装依赖
 
 ```bash
 cd ~/.openclaw/workspace/skills/wechat-content-pipeline
 npm install
 ```
 
-3. **安装 wenyan-cli（必需）**
+### 3. 安装 wenyan-cli（必需）
 
 ```bash
 npm install -g @wenyan-md/cli
 wenyan --help
 ```
 
-4. **配置**
+### 4. 配置
 
+复制配置模板：
 ```bash
 cd ~/.openclaw/workspace/skills/wechat-content-pipeline
 cp config/config.example.json config/config.json
@@ -56,54 +85,41 @@ cp config/config.example.json config/config.json
 
 编辑 `config/config.json`，填入你的 API 密钥。
 
-#### 在 OpenClaw 中使用
+详细配置指南见：[CONFIG.md](./CONFIG.md)
+
+## 在 OpenClaw 中使用
+
+### 完整流水线
 
 ```
 "帮我运行完整流水线发布这篇文章"
 + 附带文章路径：./content/my-article.md
 ```
 
-更多细节见：[SKILL.md](./SKILL.md)
+### 分步使用
 
----
-
-### 方式 2: 作为独立 Node.js 工具使用
-
-如果你不使用 OpenClaw，可以作为独立命令行工具使用。
-
-#### 安装步骤
-
-1. **克隆仓库**
-
-```bash
-git clone https://github.com/evcgs/wechat-content-pipeline.git
-cd wechat-content-pipeline
-npm install
-npm link  # 可选，全局链接命令
+```
+"帮我搜索验证这篇文章的信息"
++ 附带文章路径
 ```
 
-2. **安装 wenyan-cli（必需）**
-
-```bash
-npm install -g @wenyan-md/cli
-wenyan --help
+```
+"帮我生成这篇文章的配图"
++ 附带文章路径
 ```
 
-3. **配置**
-
-```bash
-cp config/config.example.json config/config.json
+```
+"帮我发布这篇文章到微信公众号"
++ 附带文章路径
 ```
 
-编辑 `config/config.json`，填入你的 API 密钥。
-
-#### 使用命令行
+## 命令行使用（独立工具）
 
 ```bash
 # 查看帮助
 wechat-pipeline --help
 
-# 完整流水线（一条龙）
+# 完整流水线
 wechat-pipeline pipeline --article ./content/my-article.md
 
 # 分步执行
@@ -121,69 +137,9 @@ wechat-pipeline config --init
 wechat-pipeline config --show
 ```
 
----
-
-## 配置
-
-详细配置指南请见：[CONFIG.md](./CONFIG.md)
-
-包含：
-- wenyan-cli 详细配置
-- 如何获取微信公众号 AppID 和 AppSecret
-- 如何设置 IP 白名单
-- 完整配置示例
-
----
-
-## 文章格式要求
-
-文章必须包含 frontmatter：
-
-```markdown
----
-title: 文章标题（必填）
-cover: ./images/cover.png（必填，本地路径或网络URL）
----
-
-# 正文开始
-
-你的内容...
-
-![图片说明](./images/image1.png)
-```
-
----
-
-## 项目结构
-
-```
-wechat-content-pipeline/
-├── SKILL.md                # OpenClaw 技能说明
-├── README.md               # 本文档
-├── CONFIG.md               # 详细配置指南
-├── QUICKSTART.md           # MVP 快速开始
-├── package.json            # Node.js 配置
-│
-├── bin/                    # 可执行文件
-├── src/                    # 源代码
-│   ├── config/            # 配置管理
-│   ├── search/            # 搜索模块
-│   ├── image/             # 图片生成模块
-│   ├── publish/           # 发布模块
-│   └── pipeline/          # 流水线
-├── config/                 # 配置文件
-├── content/                # 文章目录（默认）
-├── images/                 # 图片目录（默认）
-└── examples/               # 示例
-```
-
----
-
 ## 致谢与声明
 
 本项目整合了以下优秀的开源工具和服务：
-
-### 核心依赖
 
 - **[wenyan-cli](https://github.com/caol64/wenyan-cli)** - 微信公众号 Markdown 发布工具
   - 作者：caol64
@@ -209,15 +165,11 @@ wechat-content-pipeline/
 - 所有核心功能都依赖上述开源项目和服务
 - 如果你觉得这个项目有用，请也给上述项目点个 Star ⭐
 
----
-
 ## 更多文档
 
-- [SKILL.md](./SKILL.md) - OpenClaw 技能说明
 - [CONFIG.md](./CONFIG.md) - 详细配置指南
 - [QUICKSTART.md](./QUICKSTART.md) - MVP 快速开始
-
----
+- [README.md](./README.md) - 项目说明
 
 ## License
 
