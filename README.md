@@ -1,10 +1,38 @@
 # wechat-content-pipeline
 
-微信公众号内容生产流水线 - 整合搜索验证、图片生成、发布全流程。
+微信公众号内容生产流水线 - 完整的 9 步内容生产流程。
 
 **支持两种使用方式：**
 1. ✅ 作为 **OpenClaw 技能**使用
 2. ✅ 作为 **独立 Node.js 工具**使用
+
+---
+
+## 完整内容生产工作流（9步）
+
+```
+1. 选题确认
+   ↓
+2. 创意点提炼（5个核心创意点+金句）
+   ↓
+3. 证据链整理（每个创意点2-3个证据+来源）
+   ↓
+4. 大纲搭建（三级大纲，约2500-3000字）
+   ↓
+5. 写文章（初稿）
+   ↓
+6. 搜索验证（SerpAPI搜索修正）
+   ↓
+7. 生成图片（火山引擎生图）
+   ↓
+8. 插入图片/更新文章
+   ↓
+9. 发布（微信公众号）
+```
+
+**详细说明见：[WORKFLOW.md](./WORKFLOW.md)**
+
+**完整模板见：[templates/workflow/](./templates/workflow/)**
 
 ---
 
@@ -213,9 +241,11 @@ wechat-content-pipeline/
 
 ## 更多文档
 
+- [WORKFLOW.md](./WORKFLOW.md) - 完整 9 步内容生产工作流
 - [SKILL.md](./SKILL.md) - OpenClaw 技能说明
 - [CONFIG.md](./CONFIG.md) - 详细配置指南
 - [QUICKSTART.md](./QUICKSTART.md) - MVP 快速开始
+- [templates/workflow/](./templates/workflow/) - 工作流模板（9步）
 
 ---
 
