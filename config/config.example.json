@@ -2,10 +2,34 @@
   "serpapi": {
     "apiKey": "your_serpapi_key_here"
   },
-  "volcengine": {
-    "apiKey": "your_volcengine_api_key_here",
-    "model": "doubao-seedream-4-5-251128",
-    "endpoint": "https://ark.cn-beijing.volces.com/api/v3/images/generations"
+  "imageGeneration": {
+    "defaultModel": "volcengine",
+    "models": {
+      "volcengine": {
+        "apiKey": "your_volcengine_api_key_here",
+        "apiKeyEnv": "VOLCENGINE_API_KEY",
+        "alternativeApiKeyEnv": "ARK_API_KEY",
+        "model": "doubao-seedream-4-5-251128",
+        "endpoint": "https://ark.cn-beijing.volces.com/api/v3/images/generations",
+        "minPixels": 3686400,
+        "defaultSize": "2560x1440"
+      },
+      "qwen": {
+        "apiKey": "your_qwen_api_key_here",
+        "apiKeyEnv": "QWEN_API_KEY",
+        "model": "qwen-vl-max",
+        "alternativeModel": "qwen-image-plus",
+        "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis",
+        "defaultSize": "1024x1024"
+      },
+      "openai": {
+        "apiKey": "your_openai_api_key_here",
+        "apiKeyEnv": "OPENAI_API_KEY",
+        "model": "dall-e-3",
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "defaultSize": "1024x1024"
+      }
+    }
   },
   "wechat": {
     "defaultAccount": "default",

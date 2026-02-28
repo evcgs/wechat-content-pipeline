@@ -17,6 +17,106 @@ metadata:
 
 ---
 
+## 🚀 首次使用：初始化检查清单 ⭐⭐⭐（最重要！）
+
+**在开始写文章之前，请先完成以下检查和配置：**
+
+---
+
+### 1. 依赖安装检查
+
+- [ ] **Node.js** 是否已安装？
+  - 检查：`node --version`
+  - 如果没有：请安装 Node.js
+
+- [ ] **npm** 是否已安装？
+  - 检查：`npm --version`
+  - 通常随 Node.js 一起安装
+
+- [ ] **wenyan-cli** 是否已安装？
+  - 检查：`wenyan --help`
+  - 如果没有：`npm install -g @wenyan-md/cli`
+
+- [ ] **项目依赖** 是否已安装？
+  - 检查：`cd ~/.openclaw/workspace/skills/wechat-content-pipeline && npm install`
+
+---
+
+### 2. API Key 配置检查
+
+#### 搜索验证（SerpAPI）
+- [ ] **SERPAPI_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://serpapi.com/
+
+#### 图片生成（选择一个模型）
+
+**选项 A：火山引擎（Volcengine）- 默认**
+- [ ] **VOLCENGINE_API_KEY** 或 **ARK_API_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://www.volcengine.com/
+  - 模型：`doubao-seedream-4-5-251128`
+  - Endpoint：`https://ark.cn-beijing.volces.com/api/v3/images/generations`
+
+**选项 B：Qwen/Qwen-Image**
+- [ ] **QWEN_API_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://dashscope.console.aliyun.com/
+  - 模型：`qwen-vl-max` 或 `qwen-image-plus`
+  - Endpoint：`https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis`
+
+**选项 C：其他模型**
+- [ ] 请配置对应的 API Key
+- [ ] 请在 `config/config.json` 中添加模型配置
+
+#### 微信公众号发布
+- [ ] **WECHAT_APP_ID** 和 **WECHAT_APP_SECRET** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://mp.weixin.qq.com/
+
+---
+
+### 3. 模型选择与初始化配置
+
+**请选择你要使用的图片生成模型：**
+
+- [ ] **火山引擎（Volcengine）** - 默认推荐
+- [ ] **Qwen/Qwen-Image**
+- [ ] **其他模型**（请说明）
+
+**请确认你的选择：** ________________________
+
+---
+
+### 4. 配置文件检查
+
+- [ ] **配置文件** 是否已创建？
+  - 检查：`~/.openclaw/workspace/skills/wechat-content-pipeline/config/config.json`
+  - 如果没有：从 `config.example.json` 复制
+
+- [ ] **配置文件内容** 是否正确？
+  - 检查：API Key 是否填入
+  - 检查：模型选择是否正确
+  - 检查：微信公众号配置是否正确
+
+---
+
+### 5. 快速验证
+
+**运行验证命令：**
+```bash
+cd ~/.openclaw/workspace/skills/wechat-content-pipeline
+node bin/wechat-pipeline.js doctor
+```
+
+**确认所有检查都通过！**
+
+---
+
+**✅ 初始化检查清单完成后，就可以开始写文章了！**
+
+---
+
 ## 🔴 重要警告（最常见的坑！必须先看！）⭐⭐⭐
 
 ### ⚠️ 警告 1：图片生成的5个常见错误（昨天踩过的坑！）
