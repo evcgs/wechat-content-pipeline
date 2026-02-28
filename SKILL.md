@@ -1,6 +1,6 @@
 ---
 name: wechat-content-pipeline
-description: "微信公众号内容生产流水线 - 完整的 9 步内容生产流程"
+description: "微信公众号内容生产流水线 - 完整的 10 步内容生产流程"
 metadata:
   {
     "openclaw":
@@ -13,7 +13,7 @@ metadata:
 
 # wechat-content-pipeline (OpenClaw Skill)
 
-微信公众号内容生产流水线 - 完整的 9 步内容生产流程。
+微信公众号内容生产流水线 - 完整的 10 步内容生产流程。
 
 ---
 
@@ -386,7 +386,8 @@ metadata:
 6. 搜索验证
 7. 生成图片
 8. 插入图片/更新文章
-9. 发布前确认（询问发布到哪个公众号）
+9. 发布前检查环节（新增！）
+10. 发布前确认（询问发布到哪个公众号）
 
 每一步完成后，我都会把结果发到聊天里给你看！
 ```
@@ -483,7 +484,7 @@ metadata:
 - ✅ **统一配置** - 一个配置文件管理所有密钥
 - ✅ **统一入口** - 一个命令完成所有操作
 - ✅ **安装验证** - 使用 `doctor` 命令验证安装是否成功
-- ✅ **完整模板** - 9 步工作流的完整模板
+- ✅ **完整模板** - 10 步工作流的完整模板
 
 ---
 
@@ -677,7 +678,7 @@ wechat-content-pipeline/
 ├── README.md               # GitHub 项目说明
 ├── CONFIG.md               # 详细配置指南
 ├── QUICKSTART.md           # MVP 快速开始
-├── WORKFLOW.md             # 完整 9 步工作流
+├── WORKFLOW.md             # 完整 10 步工作流
 ├── package.json            # Node.js 配置
 │
 ├── assets/                 # 图片资源
@@ -698,7 +699,7 @@ wechat-content-pipeline/
 │   └── config.example.json # 配置模板
 │
 ├── templates/              # 工作流模板
-│   └── workflow/           # 9 步模板
+│   └── workflow/           # 10 步模板
 │
 ├── examples/               # 示例
 ├── content/                # 文章目录（默认）
@@ -709,11 +710,11 @@ wechat-content-pipeline/
 
 ## 更多文档
 
-- [WORKFLOW.md](./WORKFLOW.md) - 完整 9 步内容生产工作流
+- [WORKFLOW.md](./WORKFLOW.md) - 完整 10 步内容生产工作流
 - [README.md](./README.md) - GitHub 项目说明
 - [CONFIG.md](./CONFIG.md) - 详细配置指南
 - [QUICKSTART.md](./QUICKSTART.md) - MVP 快速开始
-- [templates/workflow/](./templates/workflow/) - 工作流模板（9步）
+- [templates/workflow/](./templates/workflow/) - 工作流模板（10步）
 
 ---
 

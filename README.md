@@ -207,7 +207,7 @@
     ↓
 [确认] 确认信息，告知流程
     ↓
-[执行步骤 1-9，每一步都发送结果]
+[执行步骤 1-10，每一步都发送结果]
     ↓
 [发布前询问] 发布到哪个公众号？
     ↓
@@ -248,7 +248,7 @@
 
 ---
 
-## 完整内容生产工作流（9步）
+## 完整内容生产工作流（10步）
 
 ```
 1. 选题确认
@@ -530,11 +530,11 @@ wechat-content-pipeline/
 
 ## 更多文档
 
-- [WORKFLOW.md](./WORKFLOW.md) - 完整 9 步内容生产工作流
+- [WORKFLOW.md](./WORKFLOW.md) - 完整 10 步内容生产工作流
 - [SKILL.md](./SKILL.md) - OpenClaw 技能说明
 - [CONFIG.md](./CONFIG.md) - 详细配置指南
 - [QUICKSTART.md](./QUICKSTART.md) - MVP 快速开始
-- [templates/workflow/](./templates/workflow/) - 工作流模板（9步）
+- [templates/workflow/](./templates/workflow/) - 工作流模板（10步）
 
 ---
 
