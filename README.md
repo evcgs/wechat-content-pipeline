@@ -8,6 +8,211 @@
 
 ---
 
+## 📢 重要更新记录
+
+### 2026-02-28：初始化检查清单 + 多模型配置支持 ⭐⭐⭐（重要）
+
+本次更新是**非常重要的用户体验优化**，让用户第一次使用时更顺畅！
+
+#### 🚀 新增：首次使用初始化检查清单
+
+**在开始写文章之前，请先完成以下检查和配置：**
+
+1. **依赖安装检查**
+   - Node.js、npm、wenyan-cli、项目依赖
+
+2. **API Key 配置检查**
+   - 搜索验证（SerpAPI）
+   - 图片生成（多模型选择：火山引擎 / Qwen / OpenAI）
+   - 微信公众号发布
+
+3. **模型选择与初始化配置**
+   - 让用户选择要使用的图片生成模型
+
+4. **配置文件检查**
+   - 配置文件是否创建
+   - 配置文件内容是否正确
+
+5. **快速验证**
+   - 运行 doctor 命令确认
+
+#### 🔧 新增：多模型配置支持
+
+**支持的图片生成模型：**
+1. **火山引擎（Volcengine）** - 默认推荐
+   - 模型：doubao-seedream-4-5-251128
+   - Endpoint：https://ark.cn-beijing.volces.com/api/v3/images/generations
+
+2. **Qwen/Qwen-Image**
+   - 模型：qwen-vl-max 或 qwen-image-plus
+   - Endpoint：https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis
+
+3. **OpenAI DALL-E 3**
+   - 模型：dall-e-3
+   - Endpoint：https://api.openai.com/v1/images/generations
+
+4. **可扩展支持其他模型**
+
+---
+
+## 🚀 首次使用：初始化检查清单 ⭐⭐⭐（最重要！）
+
+**在开始写文章之前，请先完成以下检查和配置：**
+
+---
+
+### 1. 依赖安装检查
+
+- [ ] **Node.js** 是否已安装？
+  - 检查：`node --version`
+  - 如果没有：请安装 Node.js
+
+- [ ] **npm** 是否已安装？
+  - 检查：`npm --version`
+  - 通常随 Node.js 一起安装
+
+- [ ] **wenyan-cli** 是否已安装？
+  - 检查：`wenyan --help`
+  - 如果没有：`npm install -g @wenyan-md/cli`
+
+- [ ] **项目依赖** 是否已安装？
+  - 检查：`cd ~/.openclaw/workspace/skills/wechat-content-pipeline && npm install`
+
+---
+
+### 2. API Key 配置检查
+
+#### 搜索验证（SerpAPI）
+- [ ] **SERPAPI_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://serpapi.com/
+
+#### 图片生成（选择一个模型）
+
+**选项 A：火山引擎（Volcengine）- 默认**
+- [ ] **VOLCENGINE_API_KEY** 或 **ARK_API_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://www.volcengine.com/
+  - 模型：`doubao-seedream-4-5-251128`
+  - Endpoint：`https://ark.cn-beijing.volces.com/api/v3/images/generations`
+
+**选项 B：Qwen/Qwen-Image**
+- [ ] **QWEN_API_KEY** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://dashscope.console.aliyun.com/
+  - 模型：`qwen-vl-max` 或 `qwen-image-plus`
+  - Endpoint：`https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis`
+
+**选项 C：其他模型**
+- [ ] 请配置对应的 API Key
+- [ ] 请在 `config/config.json` 中添加模型配置
+
+#### 微信公众号发布
+- [ ] **WECHAT_APP_ID** 和 **WECHAT_APP_SECRET** 是否已配置？
+  - 配置位置：`~/.openclaw/.env` 或 `config/config.json`
+  - 获取地址：https://mp.weixin.qq.com/
+
+---
+
+### 3. 模型选择与初始化配置
+
+**请选择你要使用的图片生成模型：**
+
+- [ ] **火山引擎（Volcengine）** - 默认推荐
+- [ ] **Qwen/Qwen-Image**
+- [ ] **其他模型**（请说明）
+
+**请确认你的选择：** ________________________
+
+---
+
+### 4. 配置文件检查
+
+- [ ] **配置文件** 是否已创建？
+  - 检查：`~/.openclaw/workspace/skills/wechat-content-pipeline/config/config.json`
+  - 如果没有：从 `config.example.json` 复制
+
+- [ ] **配置文件内容** 是否正确？
+  - 检查：API Key 是否填入
+  - 检查：模型选择是否正确
+  - 检查：微信公众号配置是否正确
+
+---
+
+### 5. 快速验证
+
+**运行验证命令：**
+```bash
+cd ~/.openclaw/workspace/skills/wechat-content-pipeline
+node bin/wechat-pipeline.js doctor
+```
+
+**确认所有检查都通过！**
+
+---
+
+**✅ 初始化检查清单完成后，就可以开始写文章了！**
+
+---
+
+## 🔧 多模型架构说明（支持火山引擎、Qwen、OpenAI 等）
+
+本项目采用**多模型支持架构**，图片生成支持多种模型，用户可自由选择：
+
+### 支持的模型：
+
+1. **火山引擎（Volcengine）** - 默认推荐
+   - **模型：** doubao-seedream-4-5-251128
+   - **Endpoint：** https://ark.cn-beijing.volces.com/api/v3/images/generations
+   - **API Key 环境变量：** VOLCENGINE_API_KEY 或 ARK_API_KEY
+
+2. **Qwen/Qwen-Image**
+   - **模型：** qwen-vl-max 或 qwen-image-plus
+   - **Endpoint：** https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis
+   - **API Key 环境变量：** QWEN_API_KEY
+
+3. **OpenAI DALL-E 3**
+   - **模型：** dall-e-3
+   - **Endpoint：** https://api.openai.com/v1/images/generations
+   - **API Key 环境变量：** OPENAI_API_KEY
+
+4. **可扩展支持其他模型**
+
+### 配置方法：
+
+在 `config/config.json` 中配置：
+
+```json
+{
+  "imageGeneration": {
+    "defaultModel": "volcengine",
+    "models": {
+      "volcengine": { ... },
+      "qwen": { ... },
+      "openai": { ... }
+    }
+  }
+}
+```
+
+### 1. 文字生成模型（OpenClaw 配置）
+- **用途：** 文章撰写、创意提炼、大纲搭建等文字类任务
+- **配置位置：** OpenClaw 全局配置中的默认大模型
+- **使用场景：** 步骤 1-6、步骤 8 的文字处理工作
+
+### 2. 图片生成模型（技能独立配置 - 多模型支持）
+- **用途：** 封面图、内文配图的生成
+- **配置位置：** 技能独立配置文件 `config/config.json`
+- **相关技能：** 本项目支持多种图片生成模型
+- **使用场景：** 步骤 7 的图片生成工作
+
+**为什么多模型支持？**
+- 用户可根据自己的 API Key 选择最适合的模型
+- 不同模型的特点和成本不同，灵活选择
+- 可以单独更新/切换其中一个模型，不影响另一个的使用
+
+---
+
 ## 🔧 双模型架构说明
 
 本项目采用**双模型分离架构**，文字生成和图片生成使用不同的模型，各自独立配置：
